@@ -1,0 +1,151 @@
+<!DOCTYPE html>  
+<HTML lang="en"> 
+    <HEAD>
+        <META charset="utf-8">
+        <TITLE>Задание 3</TITLE>
+        <style>
+            @import "mystyle_for_print.css" print;
+            @import "mystyle_for_screen.css" screen;
+        </style>
+    </HEAD>  
+    <BODY> 
+        <p><img src="Icon-Python.png" alt="Эмблема Python" title="Python" align="right"></p>
+        <H1 id="top">HOW-TO: Программа на Python, Часть 3</H1>  
+        <ul>
+            <li><EM><a href="task 1.html">Программа на Python — часть 1</a></EM></li>
+            <li><EM><a href="task 2.html">Программа на Python — часть 2</a></EM></li>
+            <li><EM><a href="task 3.html">Программа на Python — часть 3</a></EM></li>
+        </ul>
+        <h2 id="contents">Содержание</h2>
+        <h3>HOW-TO: Программа на Python, Часть 3</h3>
+        <ul>
+            <li><ins><a href="#part_1">Модули</a></ins></li>
+            <li><ins><a href="#part_2">Функции</a></ins></li>
+        </ul>
+        <hr color="gray">
+        <P>В прошлом уроке мы рассмотрели простую программу, которая использовала raw_input для получения ответа пользователя, простые типы переменных и простой цикл <STRONG>«for»</STRONG>. В этом уроке мы рассмотрим ещё больше типов переменных и напишем ещё больше программ.</P>
+        <p>В прошлый раз мы изучали списки, подстановку переменных, комментарии, сравнение и
+            присвоение, операторы <STRONG>if</STRONG> и <STRONG>while</STRONG>. Я обещал, что в этой части мы изучим модули и
+            функции. Давайте начнём.</p>
+        <h2 id="part_1">Модули</h2>
+        <p><a href=#contents>К содержанию</a></p>
+        <p>Модули предлагают способ расширить программирование на Python. Вы можете создать
+            свои модули, использовать те, которые поставляются с Python или которые написали
+            другие. В самом Python есть сотни модулей, которые облегчают написание программ.
+            Список модулей, поставляемых с Python, находится по адресу: 
+            <EM><a href="http://docs.python.org/modindex.html">http://docs.python.org/modindex.html</a></EM>. Некоторые модули предназначены для определённых
+            операционных систем, но большинство из них кроссплатформенные и работают
+            одинаково на <a href="https://ru.wikipedia.org/wiki/Linux" target="_blank">Linux</a>, <a href="https://ru.wikipedia.org/wiki/Macintosh" target="_blank">Mac</a> и <a href="https://ru.wikipedia.org/wiki/Windows" target="_blank">Microsoft Windows</a>. Для использования внешнего модуля
+            необходимо импортировать его в программу. Один из модулей, поставляемых с Python,
+            называется «random». Он даёт возможность генерировать псевдослучайные числа. Мы
+            используем этот модуль в нашем первом примере.</p>
+        <P><code>#=======================================<br>
+            # random_example.py<br>
+            # Module example using the random module<br>
+            #=======================================<br>
+            import random<br>
+            # print 14 random integers<br>
+            for cntr in range(1,15):<br>
+            &nbsp &nbsp print random.randint(1,10)</code></P>
+        <p>Давайте разберём код по строкам. Первые четыре строки — это комментарии, о которых
+            мы говорили в прошлый раз. Пятая строка говорит Python, что нужно использовать
+            модуль «random». Мы должны явно указать Python на это.</p>
+        <hr color="gray">
+        <h2 id="part_2">Функции</h2>
+        <p><a href=#contents>К содержанию</a></p>
+        <p>Когда мы импортировали модуль random, мы использовали функцию <STRONG>randint()</STRONG>. Функция
+            — это блок кода, который создан для того, чтобы вызывать его в программе, обычно,
+            более одного раза. Это упрощает работу над программой и предотвращает набор одного и
+            того же кода снова и снова. Грубо говоря, если вам нужно написать некоторый код
+            больше, чем 1-2 раза, стоит сделать его функцией. Хотя следующие два примера очень
+            простые, это хорошие примеры функций. Теперь мы хотим, скажем, взять два числа,
+            сложить их, перемножить, вычесть одно из другого, затем вывести на экран эти числа и
+            результаты одновременно. Допустим, нам нужно сделать это три раза для трёх наборов
+            чисел. Тогда наш пример будет выглядеть как код ниже.</p>
+        <P><code>#silly example<br>
+            print '%d + %d = %d ' % (1,2,1+2)<br>
+            print '%d * %d = %d ' % (1,2,1*2)<br>
+            print '%d - %d = %d ' % (1,2,1-2)</code></P>
+        <P><code>print '\n'<br>
+            print '%d + %d = %d ' % (1,4,1+4)<br>
+            print '%d * %d = %d ' % (1,4,1*4)<br>
+            print '%d - %d = %d ' % (1,4,1-4)</code></P>
+        <P><code>print '\n'<br>
+            print '%d + %d = %d ' % (10,5,10+5)<br>
+            print '%d * %d = %d ' % (10,5,10*5)<br>
+            print '%d - %d = %d ' % (10,5,10-5)<br>
+            print '\n'</code></P>
+        <p>Здесь нужно не только набрать много текста, но и непременно возникнут ошибки как при
+            написании, так и при внесении изменений. Вместо этого мы создадим функцию, которую
+            назовём <STRONG>«DoTwo»</STRONG>. Она будет каждый раз брать два числа, проводить математические
+            операции и выводить результат. Начнём с ключевого слова <STRONG>«def»</STRONG>, которое сигнализирует
+            о том, что мы собираемся определить функцию. После слова <STRONG>«def»</STRONG> добавим название
+            функции и список параметров, если таковые имеются, в круглых скобках. Эту строку
+            необходимо завершить двоеточием. Код функции набирается с отступом. Наш
+            улучшенный простой пример (<ins>No2</ins>) показан ниже.</p>
+        <P><code>#silly example 2...still silly, but better<br>
+            def DoTwo(num1,num2):<br>
+            &nbsp &nbsp &nbsp &nbsp print '%d + %d = %d ' % (num1,num2,num1+num2)<br>
+            &nbsp &nbsp &nbsp &nbsp print '%d * %d = %d ' % (num1,num2,num1*num2)<br>
+            &nbsp &nbsp &nbsp &nbsp print '%d - %d = %d ' % (num1,num2,num1-num2)<br>
+            print '\n'<br>
+            DoTwo(1,2)<br>
+            DoTwo(1,4)<br>
+            DoTwo(10,5)</code></P>
+        <p>Как видите, здесь написано меньше кода — 8 строк вместо 12. Если нам нужно будет что-
+            либо поменять в функции, мы сможем сделать это, не создавая проблем для нашей
+            программы. Чтобы вызвать функцию, нужно написать её имя и параметры.</p>
+        <table width="100%">
+            <tr>
+                <td align="left">
+                    <a href="task 2.html">
+                     <svg width="39" height="37" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" title="вернуться назад">
+                        <g>
+                         <title>предыдущая</title>
+                         <line stroke-linecap="null" stroke-linejoin="null" id="svg_2" y2="260" x2="638" y1="158" x1="547" opacity="undefined" fill-opacity="null" stroke-opacity="null" stroke-dasharray="null" stroke-width="null" stroke="#000" fill="none"/>
+                         <line stroke-linecap="null" stroke-linejoin="null" id="svg_3" y2="160" x2="549" y1="287" x1="770" opacity="undefined" fill-opacity="null" stroke-opacity="null" stroke-dasharray="null" stroke-width="null" stroke="#000" fill="none"/>
+                         <line stroke-linecap="null" stroke-linejoin="null" id="svg_4" y2="287" x2="769" y1="442" x1="591" opacity="undefined" fill-opacity="null" stroke-opacity="null" stroke-dasharray="null" stroke-width="null" stroke="#000" fill="none"/>
+                         <line stroke-linecap="null" stroke-linejoin="null" id="svg_5" y2="442" x2="591" y1="304" x1="643" opacity="undefined" fill-opacity="null" stroke-opacity="null" stroke-dasharray="null" stroke-width="null" stroke="#000" fill="none"/>
+                         <path id="svg_13" d="m161,246.5" opacity="NaN" fill-opacity="null" stroke-opacity="null" stroke-dasharray="null" stroke-width="null" stroke="#000" fill="none"/>
+                         <image stroke="null" style="vector-effect: non-scaling-stroke;" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAMAAADzapwJAAAACXBIWXMAAAsNAAALDQHtB8AsAAAAB3RJTUUH0wkJExMdNO/ZuAAAArVQTFRFAAAAZWVlZWVlZWVlZWVlMmjMMmnRN2W7ZWVlZWVlZWVlZWVlT2KFZWVlMmjMMmnQMmfJZWVlMmnRMmnRNWbAVmJ5OWW2ZWVlOWW3MmjMMmnOMmjLQWOjMmnNMmnROGW4MmjMMmjNN2a+M2bHRmOYOWa5OGW4SWOVQWapRmOZRGWjQmapQ2anPmOpMmjMMmnRMmjLMmnSMmnQMmjKMmbHNGfEMmbHNmbAM2XCMmnSMmfKM2jLMmjMMmnQNGjKMmjLNGfGNGfHMmfJMmbIMmjLMmjKMmnOMmrQMmnOMmjMNGnKMmfLNGnKMmvVMmzXMmrTNGzTQXLNM2zVNWzSPXDPNWvRPXDPNGvTN3PiPnfgPnfhP3fdRnrZRnrcTn7WV4TXSHvaMm/eMm/gNnn1N3r0OHHZOXrxOX78On/9O3/9O4D/PHPYPH/8PIH/PYL/QHXWQIT/QYT9QoT/Q4X9RYf/RoT2Rob8SIj8SIj/SYj8SnrSTYXrTYXsUIv4Uoz1VovvWo/xXY/tXZHyXpLxXpT3Xpf/X5LxYJj/YZDnYZLtYpHpZZv9Zpz/a5fobZjnbZ73cKL8c5nhc5vnc5zodJzodJ3odZ7qdqP3epzbeqXzfKDifabzfqv/gqXmgqbmg6nvhqzviqrli6znjKznja3ojq3lka/okrHtk7PtlLLqmbXqmrXnm7blm7fsnbfnncD/oLvso7vpp77qqsHrrMb2sMXstMnwtsruuMvvuMzuuczvu87wvtDywtP0w9PxxtbxyNfyydfyzNrz0d300t711eD11uH11+H11+L11+L22eP12uT23ur/3+j34Oj34+v45Ov45ez55+355+/+6PD/6e/66/L+7fL87fP97/P67/P78fT78fX78fX98fX+8vX78/f+9vn/+vv++/z+/P3+/v7+////MlzvGAAAAGF0Uk5TAAECAwQFBQYHCw0UFxgaGhwdHyMqKisrMDMzNDU5OTw9PT0+Q01PUVNUW2BiZY+PkpOYmaGhoqqwtrm9v7+/wcrKzNDW2d3d3uXl5ubo7e7u7u/w8PLy9P39/f39/f39/tDAlW4AAAABYktHRObBbFoFAAABkklEQVQYGQXByXISQQCA4b+ne1Z2JhEUSSUaDVGr8gDe9OK7+hYePagHpayYraIMCcOSIQPTzOr3CQDAcmt2lW2SHQAIADjoND2LLIkebwoABeAfDOuv2s/McHqZ9u5uc1BA9/Xp6M2TlkWxXp5/9+R1jgT/5PDj2Z4aB0HTqPX7gcweKwmn7z4cW8XVycj/5RalO1hHy1wyfHs2EkXwYl9Yuijy0hFLvVFmxz0s02jwFFYpQNFzW0q5zSM31b0h1SwooXq43XmNtqp5jZS9YygvAHADhF1Xtq22vZeAfA9AGn0TljQgjkwFAACWLwXCyLJ4fq4BAGD5W8i8VJtkVV7En3yyz3OAPFeRTmXVaHZVMhs40v+7yipDKBnO7mRR8/uuky36dmN0WfM8xyzn07lk7fX3PSePOo5543iOLcPxJJFUWZoeWWb20B1ry1TG1z+LUEvQWjWtuiomiZJGNPk5vd8WEiqtw/W/nm0I4i9XPxb3SYoAMJznrYZjkyXxdhbvchAACFu161KUaaTzXQn8By3KtZMjlOb3AAAAAElFTkSuQmCC" id="svg_15" height="34.22227" width="35.33339" y="1.11112" x="1.11111"/>
+                        </g>
+                     </svg>
+                    </a>
+                 </td>
+                 
+                 <th align="center">
+                    <a href="#top">
+                     <svg width="39" height="37" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" title="к началу текста">
+                        <g>
+                         <title>вверх</title>
+                         <line stroke-linecap="null" stroke-linejoin="null" id="svg_2" y2="260" x2="638" y1="158" x1="547" opacity="undefined" fill-opacity="null" stroke-opacity="null" stroke-dasharray="null" stroke-width="null" stroke="#000" fill="none"/>
+                         <line stroke-linecap="null" stroke-linejoin="null" id="svg_3" y2="160" x2="549" y1="287" x1="770" opacity="undefined" fill-opacity="null" stroke-opacity="null" stroke-dasharray="null" stroke-width="null" stroke="#000" fill="none"/>
+                         <line stroke-linecap="null" stroke-linejoin="null" id="svg_4" y2="287" x2="769" y1="442" x1="591" opacity="undefined" fill-opacity="null" stroke-opacity="null" stroke-dasharray="null" stroke-width="null" stroke="#000" fill="none"/>
+                         <line stroke-linecap="null" stroke-linejoin="null" id="svg_5" y2="442" x2="591" y1="304" x1="643" opacity="undefined" fill-opacity="null" stroke-opacity="null" stroke-dasharray="null" stroke-width="null" stroke="#000" fill="none"/>
+                         <path id="svg_13" d="m161,246.5" opacity="NaN" fill-opacity="null" stroke-opacity="null" stroke-dasharray="null" stroke-width="null" stroke="#000" fill="none"/>
+                         <image stroke="null" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAEUklEQVR42o2UbUybVRTHO3X6wfjNRLNo/OC38cU8LWNVwDEM2UxwOnUmmqGjaXldpsJEqtkUgaBMGWwqjEFAxA3Gpm6OlxB5cxmsvMg7MiwwttKHtrS09AVKn/6958JoMKPbSf557nOfe373PPeec2TBTEga2Cok9W8TkvrkQmJvhJDYw9StEBJuPBOmbn40iGtQqJKpgIFbheR+vZAyIpLYJpMM3s5UJNd0RqrV6ocfFPi8kDR4Skgdm4/MuCUdyLfhcLkHpy+bUNZghLZ6Ee8W2BGj/VdSpAw5hQRdU5imJYJt8Egw6HMMWi8cmUZ84RzqrrsxftsF26IXl65ZuOyuFUyLHrT0O3C03ISdH42DRT+q1DTFEnyzSOsjM6al3DobBidduGNegsGyvAp0rmDR7aMxzXHdvONGRbMFez676RcSdeM71Y3hDP7Q/8D9xcKRSXxVY8OA3omxGTeJgyx2LyS/n2vBuUJza99dGJl2obTBgvC0fyBoOn9i4CeYtqxBe5Xy1BHboZNGNPctoGvMgRtMBJgxLWHF58ddkyQ/TDZ+NLSO668hO9LLRISmDi6wqPcx8GMylkJbmQpeztBLp67Mo7HHiqYeG3fUz3oC0IBR5OtHRGvrdVaU1hvYhY5LioRrlfvic54i8Dam1tgcC6qa51DbbuYOw1NO+Fh0wWzK6EHR7yLiTnvwev4SlFo7WI73RKmqQgksZ7mpP1Q0jzNXjShvFNE3scgjvZ/Rxq3DXrx9EnjpC0B5zAfGM0Rpat4kcAQlfsqPIr6pNeCPLiuWvRIe1Ja8flR2rIJfPC5BSB6y7tbUfLAOPlgwj7RSI76uNeF8uw1XdQ54lgNR25wSpuYkTIiAxwtuZ1qAzPNAfAkQ/iWDr4GjNefiZVT7VKYx2W7sP+HC/vxVJZd6sOAKgMvauDPX8G1wS60IzEVksedxHzvj7tlX1FXvyaihUO2HaZ2IzpHWFfeDxMAIgFs3B+/KBnYz7ch0QdB09ceoiqNl1KWooYSlzUh78nzYuyZVie++Eaf/7ENMrg/kRyLGDk1b7YH4zO0yMupSitQha2yOGXFFdrzPlF7hwKzVB4db4udb3eHBwUIH18D0Cp/PvuCktdyHfENTBhyRqho1s6c5mFofq/WSXUdHcbjYiPSzIj4pF5FbY0ZerRmZlSJVFs1zZZ0zIe+CGZ9W8HfuQ75ydcdvjBXC9LjsroVq2rbLE7v/fO3YqPR5xQyyqmc36pcN4/V3Wks+ioROXYyq5C0GfXJDI6IXpbo+RJGoa31VO4i0kls4UWfEtxfFe4q+0Rpaq0i4rtur+v4Nxnj2nq2TjkSpbniBdanKiA//Xngne0zSnp3AdxcNKPxVJPExzdE3tsZBv0+REpQ3n82MIqfWR12KGgrVviJJZ4j6uNdKYuNZSim6/bWLCqHf3xBpEPgW2p26FDUUqn0qU6ooSn7KU0opun26qMCZBuw/G0GAr3mHnKsAAAAASUVORK5CYII=" id="svg_16" height="35.84616" width="37.38462" y="0.64516" x="0.96774"/>
+                        </g>
+                       
+                     </svg>
+                    </a>
+                 </th>
+    
+                 <td align="right">
+                    <a href="task 1.html">
+                        <svg width="39" height="37" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" title="перейти дальше">
+                            <g>
+                             <title>следующая</title>
+                             <line stroke-linecap="null" stroke-linejoin="null" id="svg_2" y2="260" x2="638" y1="158" x1="547" opacity="undefined" fill-opacity="null" stroke-opacity="null" stroke-dasharray="null" stroke-width="null" stroke="#000" fill="none"/>
+                             <line stroke-linecap="null" stroke-linejoin="null" id="svg_3" y2="160" x2="549" y1="287" x1="770" opacity="undefined" fill-opacity="null" stroke-opacity="null" stroke-dasharray="null" stroke-width="null" stroke="#000" fill="none"/>
+                             <line stroke-linecap="null" stroke-linejoin="null" id="svg_4" y2="287" x2="769" y1="442" x1="591" opacity="undefined" fill-opacity="null" stroke-opacity="null" stroke-dasharray="null" stroke-width="null" stroke="#000" fill="none"/>
+                             <line stroke-linecap="null" stroke-linejoin="null" id="svg_5" y2="442" x2="591" y1="304" x1="643" opacity="undefined" fill-opacity="null" stroke-opacity="null" stroke-dasharray="null" stroke-width="null" stroke="#000" fill="none"/>
+                             <path id="svg_13" d="m161,246.5" opacity="NaN" fill-opacity="null" stroke-opacity="null" stroke-dasharray="null" stroke-width="null" stroke="#000" fill="none"/>
+                             <image transform="rotate(-179.74337768554688 19.816766738891598,18.74173164367676) " stroke="null" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAMAAADzapwJAAAACXBIWXMAAAsNAAALDQHtB8AsAAAAB3RJTUUH0wkJExMdNO/ZuAAAArVQTFRFAAAAZWVlZWVlZWVlZWVlMmjMMmnRN2W7ZWVlZWVlZWVlZWVlT2KFZWVlMmjMMmnQMmfJZWVlMmnRMmnRNWbAVmJ5OWW2ZWVlOWW3MmjMMmnOMmjLQWOjMmnNMmnROGW4MmjMMmjNN2a+M2bHRmOYOWa5OGW4SWOVQWapRmOZRGWjQmapQ2anPmOpMmjMMmnRMmjLMmnSMmnQMmjKMmbHNGfEMmbHNmbAM2XCMmnSMmfKM2jLMmjMMmnQNGjKMmjLNGfGNGfHMmfJMmbIMmjLMmjKMmnOMmrQMmnOMmjMNGnKMmfLNGnKMmvVMmzXMmrTNGzTQXLNM2zVNWzSPXDPNWvRPXDPNGvTN3PiPnfgPnfhP3fdRnrZRnrcTn7WV4TXSHvaMm/eMm/gNnn1N3r0OHHZOXrxOX78On/9O3/9O4D/PHPYPH/8PIH/PYL/QHXWQIT/QYT9QoT/Q4X9RYf/RoT2Rob8SIj8SIj/SYj8SnrSTYXrTYXsUIv4Uoz1VovvWo/xXY/tXZHyXpLxXpT3Xpf/X5LxYJj/YZDnYZLtYpHpZZv9Zpz/a5fobZjnbZ73cKL8c5nhc5vnc5zodJzodJ3odZ7qdqP3epzbeqXzfKDifabzfqv/gqXmgqbmg6nvhqzviqrli6znjKznja3ojq3lka/okrHtk7PtlLLqmbXqmrXnm7blm7fsnbfnncD/oLvso7vpp77qqsHrrMb2sMXstMnwtsruuMvvuMzuuczvu87wvtDywtP0w9PxxtbxyNfyydfyzNrz0d300t711eD11uH11+H11+L11+L22eP12uT23ur/3+j34Oj34+v45Ov45ez55+355+/+6PD/6e/66/L+7fL87fP97/P67/P78fT78fX78fX98fX+8vX78/f+9vn/+vv++/z+/P3+/v7+////MlzvGAAAAGF0Uk5TAAECAwQFBQYHCw0UFxgaGhwdHyMqKisrMDMzNDU5OTw9PT0+Q01PUVNUW2BiZY+PkpOYmaGhoqqwtrm9v7+/wcrKzNDW2d3d3uXl5ubo7e7u7u/w8PLy9P39/f39/f39/tDAlW4AAAABYktHRObBbFoFAAABkklEQVQYGQXByXISQQCA4b+ne1Z2JhEUSSUaDVGr8gDe9OK7+hYePagHpayYraIMCcOSIQPTzOr3CQDAcmt2lW2SHQAIADjoND2LLIkebwoABeAfDOuv2s/McHqZ9u5uc1BA9/Xp6M2TlkWxXp5/9+R1jgT/5PDj2Z4aB0HTqPX7gcweKwmn7z4cW8XVycj/5RalO1hHy1wyfHs2EkXwYl9Yuijy0hFLvVFmxz0s02jwFFYpQNFzW0q5zSM31b0h1SwooXq43XmNtqp5jZS9YygvAHADhF1Xtq22vZeAfA9AGn0TljQgjkwFAACWLwXCyLJ4fq4BAGD5W8i8VJtkVV7En3yyz3OAPFeRTmXVaHZVMhs40v+7yipDKBnO7mRR8/uuky36dmN0WfM8xyzn07lk7fX3PSePOo5543iOLcPxJJFUWZoeWWb20B1ry1TG1z+LUEvQWjWtuiomiZJGNPk5vd8WEiqtw/W/nm0I4i9XPxb3SYoAMJznrYZjkyXxdhbvchAACFu161KUaaTzXQn8By3KtZMjlOb3AAAAAElFTkSuQmCC" id="svg_15" height="34.22227" width="35.33339" y="1.6306" x="2.15007"/>
+                            </g>
+                        </svg>
+                    </a>
+                 </td>
+            </tr>
+        </table>
+    </BODY>  
+</HTML> ​
