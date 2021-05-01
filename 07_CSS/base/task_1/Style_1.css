@@ -1,0 +1,29 @@
+.card1 {
+    background-image: url(cards.png);
+    background-repeat: no-repeat;
+    background-position: -144px -200px;
+    display: inline-block;
+    margin-left: 10px;
+    width: 138px;
+    height: 192px;
+}
+
+.card2 {
+    background-image: url(cards.png);
+    background-repeat: no-repeat;
+    background-position: -433px -598px;
+    display: inline-block;
+    margin-left: -50px;
+    width: 138px;
+    height: 192px;
+}
+
+.card3 {
+    background-image: url(cards.png);
+    background-repeat: no-repeat;
+    background-position: -289px -1394px;
+    display: inline-block;
+    margin-left: -50px;
+    width: 138px;
+    height: 192px;
+}

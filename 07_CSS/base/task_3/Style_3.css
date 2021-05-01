@@ -1,0 +1,36 @@
+h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 0em;
+}
+
+.one {
+    background-color: lightgray;
+    width: 30em;
+    float: left;
+    padding: 1px;
+}
+
+.two {
+    background-color: darkgray;
+    margin-bottom: .2em;
+}
+
+.three {
+    background-color: darkgray;
+    margin-bottom: .2em;
+    float: right;
+}
+
+.four {
+    background-color: lightgray;
+    clear: both;
+}
+
+div {
+    padding: 1px;
+}
+
+img {
+    float: right;
+}
